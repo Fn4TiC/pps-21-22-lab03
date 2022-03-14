@@ -20,3 +20,8 @@ class ListTest:
   @Test def testFilter() =
     assertEquals(Cons(20, Cons(30, Nil())), filter(l)(_ >= 20))
     assertEquals(Cons(10, Cons(30, Nil())), filter(l)(_ != 20))
+
+  @Test def testDrop() =
+    assertEquals(Cons(10, Cons(30, Nil())), drop(l,20))
+    assertEquals(Cons(10, Cons(20, Nil())), drop(l,30))
+    assertEquals(Cons(10, Nil()), drop(drop(l,20),30))
