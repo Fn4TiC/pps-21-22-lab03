@@ -2,7 +2,7 @@ package u03
 
 import scala.annotation.tailrec
 
-enum Person:
+private enum Person:
   case Student(name: String, year: Int)
   case Teacher(name: String, course: String)
 
@@ -73,13 +73,5 @@ object Lists extends App :
       case Cons(h, Nil()) => f(h, initialValue)
       case Cons(h, t) => f(h, foldRight(t)(initialValue)(f))
       case _ => initialValue
-
-
-  val l = List.Cons(10, List.Cons(20, List.Cons(30, List.Nil())))
-  println(List.sum(l)) // 60
-
-  import List.*
-
-  println(sum(map(filter(l)(_ >= 20))(_ + 1))) // 21+31 = 52
 
 

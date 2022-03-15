@@ -48,20 +48,8 @@ object Streams extends App :
     def constant[A](constant: A): Stream[A] = iterate(constant)(constant => constant)
 
     val fibs: Stream[Int] =
-      def fib_loop(a: Int, b:Int): Stream[Int] =
-        cons(a,fib_loop(b,a+b))
-      fib_loop(0,1)
+      def fib_loop(a: Int, b: Int): Stream[Int] =
+        cons(a, fib_loop(b, a + b))
 
-  end Stream
-
-  // var simplifies chaining of functions a bit..
-  var str = Stream.iterate(0)(_ + 1) // {0,1,2,3,..}
-  str = Stream.map(str)(_ + 1) // {1,2,3,4,..}
-  str = Stream.filter(str)(x => x < 3 || x > 20) // {1,2,21,22,..}
-  str = Stream.take(str)(10) // {1,2,21,22,..,28}
-  //println(Stream.toList(str)) // [1,2,21,22,..,28]
-  var str1 = Stream.constant("a")
-  val corec: Stream[Int] = Stream.cons(1, corec) // {1,1,1,..}
-  println(Stream.toList(Stream.take(Stream.constant("x"))(5)))
-  println(Stream.toList(Stream.take(Stream.fibs)(5)))
+      fib_loop(0, 1)
 
