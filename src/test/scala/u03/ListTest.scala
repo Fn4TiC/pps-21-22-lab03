@@ -2,7 +2,8 @@ package u03
 
 import org.junit.*
 import org.junit.Assert.*
-import Lists.*
+import u03.Lists.*
+import u03.Streams.*
 
 class ListTest:
 
@@ -47,4 +48,4 @@ class ListTest:
   @Test def testFoldRightAndLeft() =
     assertEquals(-16, foldLeft(lst)(0)(_ - _))
     assertEquals(-8, foldRight(lst)(0)(_ - _))
-    assertEquals("Numero3715",foldLeft(lst)("Numero")(_ + _))
+    assertEquals("Numero3715", foldLeft(lst)("Numero")(_ + _))
